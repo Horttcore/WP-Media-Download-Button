@@ -30,7 +30,7 @@ add_filter('wp-media-download-button', 'my_wp_media_download_button')
 
 ### I've found a bug, what to do?
 
-* Please report bugs and wishes at github ( https://github.com/Horttcore/WP-Media-Download-Button/issues )
+* Please report bugs and wishes at github (https://github.com/Horttcore/WP-Media-Download-Button/issues)
 
 ## Changelog
 
