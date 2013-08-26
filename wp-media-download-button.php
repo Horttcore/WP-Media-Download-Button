@@ -59,7 +59,7 @@ class WP_Media_Download_Button
 	 */
 	public function force_download()
 	{
-		if ( !isset( $_REQUEST['nonce'] ) || !wp_verify_nonce( $_REQUEST['nonce'], 'download-' . $attachment->ID ) )
+		if ( !isset( $_REQUEST['nonce'] ) || !wp_verify_nonce( $_REQUEST['nonce'], 'download-' . $_REQUEST['file_id'] ) )
 			die( __( 'Nonce is incorrect', 'wp-media-download-button' ) );
 
 		$attachment = get_post( intval( $_REQUEST['file_id'] ) );
