@@ -4,7 +4,7 @@ Donate link: http://www.horttcore.de
 Tags: media, download
 Requires at least: 3.6
 Tested up to: 3.7
-Stable tag: 1.1
+Stable tag: 1.2
 
 Add a download button on media overview and edit screen
 
@@ -39,6 +39,9 @@ add_filter('wp-media-download-button', 'my_wp_media_download_button')`
 *   Please give me a shout over github ( https://github.com/Horttcore/WP-Media-Download-Button/issues )
 
 == Changelog ==
+
+= 1.2 =
+* Hook 'wp-media-download-headers' added
 
 = 1.1 =
 *   Hook 'wp-media-download-button' added

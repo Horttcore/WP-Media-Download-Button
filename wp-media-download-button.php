@@ -3,7 +3,7 @@
 Plugin Name: WP Media Download Button
 Plugin URI: http://horttcore.de
 Description: Add a download button on media overview and edit screen
-Version: 1.1
+Version: 1.2
 Author: Ralf Hortt
 Author URI: http://horttcore.de
 License: GPL2
@@ -71,10 +71,37 @@ class WP_Media_Download_Button
 		$path = str_replace( $uploads['baseurl'], $uploads['basedir'], $attachment->guid );
 		$filename = end( explode( '/', $attachment->guid ) );
 
-		header('Content-type: ' . $attachment->post_mime_type, true, 200);
-		header('Content-Disposition: attachment; filename=' . $filename);
-		header('Pragma: no-cache');
-		header('Expires: 0');
+		$headers = array(
+			'content-type' => array(
+				'Content-type: ' . $attachment->post_mime_type,
+				true,
+				200
+			),
+			'content-disposition' => 'Content-Disposition: attachment; filename=' . $filename,
+			'pragma' => 'Pragma: no-cache',
+			'expires' => 'Expires: 0',
+		);
+
+		apply_filters( 'wp-media-download-headers', $headers );
+
+		if ( $headers ) :
+
+			foreach ( $headers as $header ) :
+
+				if ( is_array( $header) ) :
+
+					header( $header[0], $header[1], $header[2] );
+
+				else :
+
+					header( $header );
+
+				endif;
+
+			endforeach;
+
+		endif;
+
 		readfile($path);
 
 		die();
