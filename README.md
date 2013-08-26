@@ -11,10 +11,10 @@ Add a download button on media overview and edit screen
 
 ## Screenshots
 
-Screenshot of the admin column
+###Screenshot of the admin column
 ![Screenshot of the admin column](https://raw.github.com/Horttcore/WP-Media-Download-Button/master/screenshot-1.png)
 
-Screenshot of the meta box
+###Screenshot of the meta box
 ![Screenshot of the meta box](https://raw.github.com/Horttcore/WP-Media-Download-Button/master/screenshot-2.png)
 
 ## Frequently Asked Questions
