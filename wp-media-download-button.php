@@ -3,7 +3,7 @@
 Plugin Name: WP Media Download Button
 Plugin URI: http://horttcore.de
 Description: Add a download button on media overview and edit screen
-Version: 1.0
+Version: 1.1
 Author: Ralf Hortt
 Author URI: http://horttcore.de
 License: GPL2
@@ -113,7 +113,7 @@ class WP_Media_Download_Button
 		switch( $column ) :
 
 			case 'download_button' :
-				?><a class="button button-large" href="<?php echo admin_url( 'admin-ajax.php?action=force_download&amp;file_id=' . $post_id . '&amp;nonce=' . wp_create_nonce( 'download-' . $post_id ) ) ?>"><?php _e( 'Download', 'wp-media-download-button' ); ?></a><?php
+				?><a class="button button-large" href="<?php echo admin_url( 'admin-ajax.php?action=force_download&amp;file_id=' . $post_id . '&amp;nonce=' . wp_create_nonce( 'download-' . $post_id ) ) ?>"><?php echo apply_filters( 'wp-media-download-button', __( 'Download', 'wp-media-download-button' ) ); ?></a><?php
 			break;
 
 		endswitch;
@@ -132,7 +132,7 @@ class WP_Media_Download_Button
 	public function meta_box_download( $post )
 	{
 		?>
-		<a class="button button-large" href="<?php echo admin_url( 'admin-ajax.php?action=force_download&amp;file_id=' . $post->ID . '&amp;nonce=' . wp_create_nonce( 'download-' . $post->ID ) ) ?>"><?php echo end( explode( '/', $post->guid ) ) ?></a>
+		<a class="button button-large" href="<?php echo admin_url( 'admin-ajax.php?action=force_download&amp;file_id=' . $post->ID . '&amp;nonce=' . wp_create_nonce( 'download-' . $post->ID ) ) ?>"><?php echo apply_filters( 'wp-media-download-file', end( explode( '/', $post->guid ) ) ) ?></a>
 		<?php
 	}
 
